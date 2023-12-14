@@ -7,7 +7,7 @@
  * Return: allocated string containg history file
  */
 
-char *get_history_file(inf_t *info)
+char *get_history_file(info_t *info)
 {
 	char *buf, *dir;
 
@@ -30,11 +30,11 @@ char *get_history_file(inf_t *info)
  *
  * Return: 1 on success, else -1
  */
-int write_history(inf_t *info)
+int write_history(info_t *info)
 {
 	ssize_t fd;
 	char *filename = get_history_file(info);
-	lst_t *node = NULL;
+	list_t *node = NULL;
 
 	if (!filename)
 		return (-1);
@@ -59,7 +59,7 @@ int write_history(inf_t *info)
  *
  * Return: histcount on success, 0 otherwise
  */
-int read_history(inf_t *info)
+int read_history(info_t *info)
 {
 	int i, last = 0, linecount = 0;
 	ssize_t fd, rdlen, fsize = 0;
@@ -110,9 +110,9 @@ int read_history(inf_t *info)
  *
  * Return: Always 0
  */
-int build_history_list(inf_t *info, char *buf, int linecount)
+int build_history_list(info_t *info, char *buf, int linecount)
 {
-	lst_t *node = NULL;
+	list_t *node = NULL;
 
 	if (info->history)
 		node = info->history;
@@ -129,9 +129,9 @@ int build_history_list(inf_t *info, char *buf, int linecount)
  *
  * Return: the new histcount
  */
-int renumber_history(inf_t *info)
+int renumber_history(info_t *info)
 {
-	lst_t *node = info->history;
+	list_t *node = info->history;
 	int i = 0;
 
 	while (node)
