@@ -7,7 +7,7 @@
  *        constant function prototype.
  *  Return: Always 0
  */
-int _myhistory(inf_t *info)
+int _myhistory(info_t *info)
 {
 	print_list(info->history);
 	return (0);
@@ -20,7 +20,7 @@ int _myhistory(inf_t *info)
  *
  * Return: Always 0 on success, 1 on error
  */
-int unset_alias(inf_t *info, char *str)
+int unset_alias(info_t *info, char *str)
 {
 	char *p, c;
 	int ret;
@@ -43,7 +43,7 @@ int unset_alias(inf_t *info, char *str)
  *
  * Return: Always 0 on success, 1 on error
  */
-int set_alias(inf_t *info, char *str)
+int set_alias(info_t *info, char *str)
 {
 	char *p;
 
@@ -63,7 +63,7 @@ int set_alias(inf_t *info, char *str)
  *
  * Return: Always 0 on success, 1 on error
  */
-int print_alias(lst_t *node)
+int print_alias(list_t *node)
 {
 	char *p = NULL, *a = NULL;
 
@@ -81,16 +81,16 @@ int print_alias(lst_t *node)
 }
 
 /**
- * _myalias - mimics the alias bltin (man alias)
+ * _myalias - mimics the alias builtin (man alias)
  * @info: Structure containing potential arguments. Used to maintain
  *          constant function prototype.
  *  Return: Always 0
  */
-int _myalias(inf_t *info)
+int _myalias(info_t *info)
 {
 	int i = 0;
 	char *p = NULL;
-	lst_t *node = NULL;
+	list_t *node = NULL;
 
 	if (info->argc == 1)
 	{
